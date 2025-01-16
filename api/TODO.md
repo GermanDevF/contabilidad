@@ -1,0 +1,2 @@
+-- correr migraciones
+-- implementar las nuevas tablas que agregue

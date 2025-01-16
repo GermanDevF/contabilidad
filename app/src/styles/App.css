@@ -1,0 +1,134 @@
+/* Estilos generales para la aplicación */
+
+/* Establecemos una tipografía base y un fondo general */
+body {
+  @apply bg-gray-100 text-gray-900 font-sans;
+}
+
+/* Margin global y padding para todo el cuerpo */
+*,
+*::before,
+*::after {
+  @apply box-border;
+}
+
+html {
+  @apply h-full;
+}
+
+body {
+  @apply min-h-screen;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply text-gray-800;
+}
+
+p {
+  @apply text-gray-700;
+}
+
+/* Hacer que los formularios se vean más consistentes */
+input,
+textarea,
+select {
+  @apply border border-gray-300 rounded-md p-2;
+}
+
+button {
+  @apply bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50;
+}
+
+/* Estilos generales para iconos */
+.icon {
+  width: 1.25rem; /* Tamaño base */
+  height: 1.25rem;
+  vertical-align: middle;
+  display: inline-block;
+  transition: all 0.3s ease;
+  color: inherit;
+}
+
+.icon-lg {
+  width: 2rem; /* 32px */
+  height: 2rem;
+}
+
+.icon-sm {
+  width: 1rem; /* 16px */
+  height: 1rem;
+}
+
+.icon-primary {
+  color: #0070f3; /* Azul */
+}
+
+.icon-secondary {
+  color: #6c757d; /* Gris */
+}
+
+.icon-danger {
+  color: #ff4d4f; /* Rojo */
+}
+
+.icon-success {
+  color: #52c41a; /* Verde */
+}
+
+.icon-spacing {
+  margin: 0.25rem; /* Espacio alrededor del icono */
+}
+
+.icon-left {
+  margin-right: 0.5rem;
+}
+
+.icon-right {
+  margin-left: 0.5rem;
+}
+
+.icon-hover:hover {
+  opacity: 0.7;
+  transform: scale(1.1); /* Efecto de hover */
+}
+
+.icon-active:active {
+  transform: scale(0.95); /* Efecto de clic */
+}
+
+.icon-focus:focus {
+  outline: 2px solid #0070f3; /* Contorno azul cuando está enfocado */
+  outline-offset: 2px;
+}
+
+.icon-prefix,
+.icon-suffix {
+  display: inline-flex;
+  align-items: center;
+}
+
+.icon-prefix {
+  margin-right: 0.5rem;
+}
+
+.icon-suffix {
+  margin-left: 0.5rem;
+}
+
+.icon-spin {
+  animation: spin 2s infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,55 @@
+/* Estos estilos no son para importarlos en el html
+  es para  tenerlos guardados en un archivo css
+  y tener a la mano los estilos que se van a reutilizar en los correos
+  !NO SE DEBEN IMPORTAR EN EL HTML
+  !PORQUE NO SE VA A MOSTRAR EL ESTILO
+  !SE DEBE COPIAR Y PEGAR EN EL HTML
+  !PARA QUE SE VISUALICE CORRECTAMENTE
+  !DEBIDO A QUE LOS CLIENTES DE CORREO NO SOPORTAN LA IMPORTACION DE
+  !ESTILOS EXTERNOS
+ */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333333;
+  margin: 0;
+  padding: 0;
+}
+.email-container {
+  max-width: 600px;
+  margin: 20px auto;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.header {
+  background-color: #673ab7;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+.content {
+  padding: 20px;
+  text-align: center;
+}
+.button {
+  display: inline-block;
+  background-color: #673ab7;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 5px;
+}
+.button:hover {
+  opacity: 0.8;
+  color: white;
+}
+.footer {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #666666;
+  text-align: center;
+}

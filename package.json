@@ -1,0 +1,30 @@
+{
+  "name": "monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Monorepo for API and Frontend",
+  "scripts": {
+    "dev:api": "pnpm --filter api dev",
+    "build:api": "pnpm --filter api build",
+    "start:api": "pnpm --filter api start",
+    "lint:api": "pnpm --filter api lint",
+    "dev:app": "pnpm --filter app dev",
+    "build:app": "pnpm --filter app build",
+    "preview:app": "pnpm --filter app preview",
+    "lint:app": "pnpm --filter app lint",
+    "format": "pnpm format:api && pnpm format:app",
+    "format:api": "pnpm --filter api format",
+    "format:app": "pnpm --filter app format",
+    "migrate": "pnpm --filter api migrate"
+  },
+  "dependencies": {
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "prettier": "^3.4.2",
+    "eslint": "^9.18.0",
+    "eslint-config-prettier": "^9.1.0",
+    "typescript": "^5.7.2",
+    "@types/node": "^20.8.1"
+  }
+}

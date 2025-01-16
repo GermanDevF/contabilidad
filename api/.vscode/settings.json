@@ -1,0 +1,42 @@
+{
+  "eslint.enable": true,
+  "eslint.run": "onType",
+  "editor.formatOnSave": true,
+  "eslint.workingDirectories": [
+    {
+      "directory": "../src",
+      "!cwd": true
+    }
+  ],
+  "eslint.codeActionsOnSave.mode": "all",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  },
+  "eslint.validate": [
+    "javascript",
+    "JSON"
+  ],
+  "eslint.options": {
+    "overrideConfigFile": ".eslintrc.json"
+  },
+  "[json]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "eslint.format.enable": true,
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "eslint.nodePath": "../node_modules",
+  "eslint.ignoreUntitled": false,
+  "path-intellisense.mappings": {
+    "@": "${workspaceRoot}/src"
+  },
+  "[handlebars]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  }
+  
+}

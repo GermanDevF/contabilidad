@@ -1,0 +1,6 @@
+{
+  "companyName": "Company Name",
+  "userName": "User Name",
+  "verificationUrl": "http://localhost:3000/verify-email?token={{token}}",
+  "year": "2025"
+}

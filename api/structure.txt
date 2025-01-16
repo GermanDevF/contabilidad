@@ -1,0 +1,33 @@
+src
+ ┣ api
+ ┃ ┣ auth
+ ┃ ┃ ┣ auth.controller.ts
+ ┃ ┃ ┣ auth.middleware.ts
+ ┃ ┃ ┣ auth.routes.ts
+ ┃ ┃ ┣ auth.schemas.ts
+ ┃ ┃ ┗ auth.types.ts
+ ┃ ┗ health
+ ┃ ┃ ┣ health.controller.ts
+ ┃ ┃ ┗ health.routes.ts
+ ┣ middlewares
+ ┃ ┗ error-handler.ts
+ ┣ utils
+ ┃ ┣ emails
+ ┃ ┃ ┣ templates
+ ┃ ┃ ┃ ┣ ConfirmEmail
+ ┃ ┃ ┃ ┃ ┣ confirm_email.html
+ ┃ ┃ ┃ ┃ ┗ confirm_email.html.json
+ ┃ ┃ ┃ ┣ ForgotPassword
+ ┃ ┃ ┃ ┃ ┣ forgot_password.html
+ ┃ ┃ ┃ ┃ ┗ forgot_password.html.json
+ ┃ ┃ ┃ ┗ styles.css
+ ┃ ┃ ┣ common.ts
+ ┃ ┃ ┣ config.ts
+ ┃ ┃ ┣ confirm_email.ts
+ ┃ ┃ ┣ forgot_password.ts
+ ┃ ┃ ┗ index.ts
+ ┃ ┣ commons.ts
+ ┃ ┣ db.ts
+ ┃ ┗ env.ts
+ ┣ index.ts
+ ┗ types.d.ts

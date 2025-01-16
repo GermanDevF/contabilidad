@@ -1,0 +1,104 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                Int       @id @default(autoincrement())
+  email             String    @unique
+  password          String
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  isVerified        Boolean   @default(false)
+  name              String?
+  passwordChangedAt DateTime?
+
+  // Relaciones
+  sessions             Session[]
+  passwordHistories    PasswordHistory[]
+  emailVerifications   EmailVerification[]
+  passwordResets       PasswordReset[]
+  twoFactorAuths       TwoFactorAuth[]
+  userEmailPreferences UserEmailPreferences[]
+  auditLogs            AuditLog[]
+}
+
+model PasswordReset {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  token     String   @unique
+  expiresAt DateTime
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+// Para este modelo, se asume que el campo `action` es un string que describe la acción realizada por el usuario
+// y `details` es un string opcional que describe los detalles de la acción realizada.
+// Modelo de auditoría de acciones realizadas por los usuarios.
+model AuditLog {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  action    String
+  details   String?
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+// Para este modelo, se asume que el campo `token` es un string único que se utiliza para verificar la dirección de correo electrónico
+// y `expiresAt` es una fecha y hora que indica cuándo expira el token.
+// Modelo de verificación de correo electrónico
+model EmailVerification {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  token     String   @unique
+  expiresAt DateTime
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+// Para este modelo, se asume que el campo `oldPassword` es un string que almacena la contraseña anterior del usuario
+// y `changedAt` es una fecha y hora que indica cuándo se cambió la contraseña.
+// Modelo de historial de contraseñas
+model PasswordHistory {
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  oldPassword String
+  changedAt   DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id])
+}
+
+// Para este modelo, se asume que el campo `token` es un string único que se utiliza para identificar la sesión del usuario
+// y `expiresAt` es una fecha y hora que indica cuándo expira la sesión.
+// Modelo de sesión de usuario
+model Session {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  token     String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+// Para este modelo, se asume que el campo `secret` es un string que almacena el secreto de autenticación de dos factores
+// y `isEnabled` es un booleano que indica si la autenticación de dos factores está habilitada o no.
+model TwoFactorAuth {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  secret    String
+  isEnabled Boolean  @default(false)
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+// Para este modelo, se asume que el campo `receiveNews` es un booleano que indica si el usuario desea recibir noticias por correo electrónico
+// y `receiveOffers` es un booleano que indica si el usuario desea recibir ofertas por correo electrónico.
+// Modelo de preferencias de correo electrónico del usuario
+model UserEmailPreferences {
+  id            Int     @id @default(autoincrement())
+  userId        Int
+  receiveNews   Boolean @default(true)
+  receiveOffers Boolean @default(true)
+  user          User    @relation(fields: [userId], references: [id])
+}
