@@ -3,6 +3,9 @@
   "private": true,
   "version": "1.0.0",
   "description": "Monorepo for API and Frontend",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "dev:api": "pnpm --filter api dev",
     "build:api": "pnpm --filter api build",
@@ -15,16 +18,23 @@
     "format": "pnpm format:api && pnpm format:app",
     "format:api": "pnpm --filter api format",
     "format:app": "pnpm --filter app format",
-    "migrate": "pnpm --filter api migrate"
+    "migrate": "pnpm --filter api migrate",
+    "prepare": "husky install",
+    "co": "sui-mono commit"
   },
   "dependencies": {
     "zod": "^3.24.1"
   },
   "devDependencies": {
-    "prettier": "^3.4.2",
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@s-ui/mono": "^2.45.0",
+    "@types/node": "^20.8.1",
     "eslint": "^9.18.0",
     "eslint-config-prettier": "^9.1.0",
-    "typescript": "^5.7.2",
-    "@types/node": "^20.8.1"
+    "husky": "^9.1.7",
+    "lint-staged": "^15.3.0",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.2"
   }
 }
